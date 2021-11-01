@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Getting Started: Serving Web Content</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<form action="#" th:action="@{/update-contact}" method="post" th:object="${contactRecord}">
+
+		<table>
+
+			<tr>
+				<td><label th:text="'Id:' "  /></td>
+				<td><input type="number" th:name="id" th:field="*{id}" th:readonly="true" /></td>
+			</tr>
+			<tr>
+				<td><label th:text="'Name:' " /></td>
+				<td><input type="text" th:name="name" th:field="*{name}" /></td>
+			</tr>
+
+			<tr>
+				<td><label th:text="'Age:' " /></td>
+				<td><input type="text" th:name="age" th:field="*{age}" /></td>
+			</tr>
+
+			<tr>
+				<td><label th:text="'Phone Number:' " /></td>
+				<td><input type="text" th:name="phNumber" th:field="*{phNumber}" /></td>
+			</tr>
+
+			<tr>
+				<td><label th:text="'Email:' " /></td>
+				<td><input type="text" th:name="email" th:field="*{email}" /></td>
+			</tr>
+
+			<tr>
+				<td><label th:text="'Address:' " /></td>
+				<td><input type="text" th:name="address" th:field="*{address}" /></td>
+			</tr>
+
+
+		</table>
+
+		<input type="submit" />
+	</form>
+
+</body>
+
+</html>

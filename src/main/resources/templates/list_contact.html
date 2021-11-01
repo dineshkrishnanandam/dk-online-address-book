@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Getting Started: Serving Web Content</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	
+	<table border="1">
+		<tbody>
+			<tr th:each="contact : ${contacts}">
+				<td> <a th:href="@{update-contact?id=} + ${contact.id}"   th:text="${contact.id}" >  </a> </td>
+				<td th:text="${contact.name}" />
+				<td th:text="${contact.age}" />
+				<td th:text="${contact.email}" />
+				<td th:text="${contact.phNumber}" />
+				<td th:text="${contact.address}" />
+			</tr>
+		</tbody>
+	</table>
+
+	
+
+
+	<a th:href="@{/}" th:text="'Home'" />
+</body>
+
+</html>
