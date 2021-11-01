@@ -1,4 +1,4 @@
-package com.example.servingwebcontent;
+package com.dk.address.book.contact;
 
 import java.util.Optional;
 
@@ -13,19 +13,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class AddressBookController {
+public class ContactController {
 
 //	@Value("${value.from.file}")
 	@Value("${view.add.contact}")
 	String addContactViewName;
 
 	@Autowired
-	AddressRepository addressRepository;
-
-	@GetMapping("/")
-	public String getHomePage() {
-		return "home";
-	}
+	ContactRepository addressRepository;
 
 	@GetMapping("/add-contact")
 	public String addContact() {
@@ -35,8 +30,8 @@ public class AddressBookController {
 	@GetMapping("/update-contact")
 	public String updateContact(@RequestParam Integer id , Model model) {
 
-		Optional<Address> checking = addressRepository.findById(id);
-		Address a = checking.orElse(new Address());
+		Optional<Contact> checking = addressRepository.findById(id);
+		Contact a = checking.orElse(new Contact());
 		model.addAttribute("contactRecord", a);
 		return "update_contact";
 	}
@@ -50,7 +45,7 @@ public class AddressBookController {
 			@RequestParam String email, 
 			@RequestParam String address, 
 			Model model) {
-		Address contact = new Address();
+		Contact contact = new Contact();
 		contact.setName(name);
 		contact.setAge(age);
 		contact.setEmail(email);
@@ -78,7 +73,7 @@ public class AddressBookController {
 	
 	@GetMapping("/list-contact")
 	public String listContact(Model model) {
-		Iterable<Address> contactList = addressRepository.findAll();
+		Iterable<Contact> contactList = addressRepository.findAll();
 		model.addAttribute("contacts", contactList);
 		return "list_contact";
 	}
@@ -98,7 +93,7 @@ public class AddressBookController {
 		
 		
 		
-		Address contact = new Address();
+		Contact contact = new Contact();
 		contact.setName(name);
 		contact.setAge(age);
 		contact.setEmail(email);

@@ -26,7 +26,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(controllers = AddressBookController.class)
+import com.dk.address.book.contact.ContactController;
+
+@WebMvcTest(controllers = ContactController.class)
 public class ServingWebContentApplicationTest {
 
 	@Autowired

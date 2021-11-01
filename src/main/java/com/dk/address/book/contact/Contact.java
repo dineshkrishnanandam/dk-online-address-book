@@ -1,4 +1,4 @@
-package com.example.servingwebcontent;
+package com.dk.address.book.contact;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Address {
+public class Contact {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	Integer id;
