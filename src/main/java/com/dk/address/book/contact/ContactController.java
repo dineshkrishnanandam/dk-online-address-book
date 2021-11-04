@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ContactController {
 
-//	@Value("${value.from.file}")
+
 	@Value("${view.add.contact}")
 	String addContactViewName;
 
 	@Autowired
-	ContactRepository addressRepository;
+	ContactRepository contactRepository;
 
 	@GetMapping("/add-contact")
 	public String addContact() {
@@ -30,7 +30,7 @@ public class ContactController {
 	@GetMapping("/update-contact")
 	public String updateContact(@RequestParam Integer id , Model model) {
 
-		Optional<Contact> checking = addressRepository.findById(id);
+		Optional<Contact> checking = contactRepository.findById(id);
 		Contact a = checking.orElse(new Contact());
 		model.addAttribute("contactRecord", a);
 		return "update_contact";
@@ -54,7 +54,7 @@ public class ContactController {
 		contact.setId(id);
 		
 
-		addressRepository.save(contact);
+		contactRepository.save(contact);
 
 		model.addAttribute("name", name);
 		model.addAttribute("age", age);
@@ -63,7 +63,7 @@ public class ContactController {
 		model.addAttribute("address", address);
 		model.addAttribute("id", id);
 		
-		return "contact_add_success";
+		return "contact_modify_success";
 
 	}
 
@@ -73,7 +73,7 @@ public class ContactController {
 	
 	@GetMapping("/list-contact")
 	public String listContact(Model model) {
-		Iterable<Contact> contactList = addressRepository.findAll();
+		Iterable<Contact> contactList = contactRepository.findAll();
 		model.addAttribute("contacts", contactList);
 		return "list_contact";
 	}
@@ -100,7 +100,7 @@ public class ContactController {
 		contact.setPhNumber(phNumber);
 		contact.setAddress(address);
 
-		addressRepository.save(contact);
+		contactRepository.save(contact);
 
 		model.addAttribute("name", name);
 		model.addAttribute("age", age);
