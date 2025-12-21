@@ -82,7 +82,7 @@ public class ContactController {
 //	public String addContact() {
 //		return "add_contact";
 //	}
-
+//address
 	@PostMapping("/add-contact")
 	public String addContact(@RequestParam String name, 
 			@RequestParam String age,
